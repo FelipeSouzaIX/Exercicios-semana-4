@@ -1,0 +1,19 @@
+class Country {
+  String ISOCode;
+  String name;
+  double population;
+  double dimension;
+  List<Country> borderCountries;
+
+  Country(this.ISOCode, this.name, this.dimension) {
+    this.borderCountries = [];
+  }
+
+  bool isBorder(Country country) {
+    return this.borderCountries.contains(country);
+  }
+
+  double populationDensity() {
+    return this.population / this.dimension;
+  }
+}
