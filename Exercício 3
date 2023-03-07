@@ -1,0 +1,44 @@
+import 'dart:core';
+
+class Guest {
+String name;
+String celPhone;
+
+Guest(this.name, this.celPhone);
+}
+
+class Event {
+List<Guest> guests = [];
+DateTime date;
+String venue;
+
+void registerGuest(Guest guest) {
+guests.add(guest);
+}
+
+bool removeGuest(Guest guest) {
+return guests.remove(guest);
+}
+
+int numberOfGuests() {
+return guests.length;
+}
+}
+
+void main() {
+var event = Event();
+event.date = DateTime.now();
+event.venue = "Centro de Eventos";
+
+var guest1 = Guest("Maria", "(51) 99999-9999");
+var guest2 = Guest("João", "(51) 98888-8888");
+
+event.registerGuest(guest1);
+event.registerGuest(guest2);
+
+print("Número de convidados: ${event.numberOfGuests()}");
+
+event.removeGuest(guest2);
+
+print("Número de convidados após remoção: ${event.numberOfGuests()}");
+}
