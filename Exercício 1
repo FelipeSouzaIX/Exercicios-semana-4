@@ -1,0 +1,35 @@
+class Product {
+  String name;
+  double price;
+  int quantity;
+
+  Product(this.name, this.price, this.quantity);
+
+  double calculateDiscount() {
+    double total = price * quantity;
+    if (quantity > 50) {
+      return total * 0.75;
+    } else if (quantity > 20) {
+      return total * 0.8;
+    } else if (quantity > 10) {
+      return total * 0.9;
+    } else {
+      return total;
+    }
+  }
+}
+
+void main() {
+  Product product1 = Product("Camiseta Polo", 80.00, 100);
+  Product product2 = Product("Calça Jeans", 120.00, 22);
+  Product product3 = Product("Sapatênis Pegada", 150.00, 5);
+
+  print("Nome do produto: ${product1.name}");
+  print("Valor total a ser pago: ${product1.calculateDiscount()}");
+
+  print("Nome do produto: ${product2.name}");
+  print("Valor total a ser pago: ${product2.calculateDiscount()}");
+
+  print("Nome do produto: ${product3.name}");
+  print("Valor total a ser pago: ${product3.calculateDiscount()}");
+}
